@@ -1,0 +1,44 @@
+<PISI>
+    <Source>
+        <Name>earlyoom</Name>
+        <Homepage>https://github.com/rfjakob/earlyoom</Homepage>
+        <Packager>
+            <Name>Arjen Runsink</Name>
+            <Email>arjen.runsink@gmail.com</Email>
+        </Packager>
+        <License>MIT</License>
+        <PartOf>system</PartOf>
+        <Summary xml:lang="en">The Early OOM Daemon to prevent systems from hanging</Summary>
+        <Description xml:lang="en">earlyoom checks the amount of available memory and free swap 
+up to 10 times a second (less often if there is a lot of free memory). 
+By default if both are below 10%, it will kill the largest process 
+(highest oom_score). The percentage value is configurable via command line arguments.
+</Description>
+        <Archive type="binary" sha1sum="79eb0752a961b8e0d15c77d298c97498fbc89c5a">https://getsol.us/sources/README.Solus</Archive>
+    </Source>
+    <Package>
+        <Name>earlyoom</Name>
+        <Summary xml:lang="en">The Early OOM Daemon to prevent systems from hanging</Summary>
+        <Description xml:lang="en">earlyoom checks the amount of available memory and free swap 
+up to 10 times a second (less often if there is a lot of free memory). 
+By default if both are below 10%, it will kill the largest process 
+(highest oom_score). The percentage value is configurable via command line arguments.
+</Description>
+        <PartOf>system</PartOf>
+        <Files>
+            <Path fileType="config">/etc/default/earlyoom</Path>
+            <Path fileType="config">/etc/systemd/system/earlyoom.service</Path>
+            <Path fileType="executable">/usr/bin/earlyoom</Path>
+            <Path fileType="man">/usr/share/man/man1/earlyoom.1.gz</Path>
+        </Files>
+    </Package>
+    <History>
+        <Update release="1">
+            <Date>2019-10-29</Date>
+            <Version>20191029</Version>
+            <Comment>Packaging update</Comment>
+            <Name>Arjen Runsink</Name>
+            <Email>arjen.runsink@gmail.com</Email>
+        </Update>
+    </History>
+</PISI>

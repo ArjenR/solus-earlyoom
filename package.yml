@@ -1,0 +1,29 @@
+name       : earlyoom
+version    : 20191029
+release    : 1
+source     :
+   - git|https://github.com/rfjakob/earlyoom.git: master
+license    : MIT
+component  : system
+homepage   : https://github.com/rfjakob/earlyoom
+summary    : The Early OOM Daemon to prevent systems from hanging
+description: |
+     earlyoom checks the amount of available memory and free swap 
+     up to 10 times a second (less often if there is a lot of free memory). 
+     By default if both are below 10%, it will kill the largest process 
+     (highest oom_score). The percentage value is configurable via command line arguments.
+networking : no
+optimize   :
+    - speed
+environment : 
+    export DESTDIR=$installdir
+    export PREFIX="/usr"
+builddeps  :
+    - pandoc
+rundeps    :
+    - glibc
+
+build      : |
+    %make all
+install    : |
+    %make install
